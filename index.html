@@ -4,16 +4,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bar Label Rotation - Apache ECharts Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-  <div id="chart-container">
-  </div>
-  
-  <script src="https://echarts.apache.org/en/js/vendors/echarts/dist/echarts.min.js"></script>
-  <script src="./index.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-  <script src="index.js"></script>
+<body class="flex flex-col gap-[2.5rem]">
+  <header class="bg-[#0074C8]">
+    <nav class="w-full bg-[#0074C8] h-[7.1875rem] py-[0.625rem] px-[1.25rem] max-w-[1500px] mx-auto flex flex-col justify-between">
+      <!--Logo and Button container-->
+      <div class="flex justify-between max-w-[1500px] w-full mx-auto">
+        <div class="flex justify-start items-end gap-[1.25rem]">
+          <img src="images/LogoFDIT2140.svg" alt="Logo" class="logo">
+          <h1 class="font-['Montserrat'] font-medium text-white text-[1.75rem]">Open Data Portal</h1>
+        </div>
+        <div class="flex gap-[0.625rem] items-center">
+          <button class="bg-white text-black py-1 px-4 rounded-3xl hover:bg-gray-100 hover:-translate-y-0.5 transition-transform">Log In</button>
+          <button class="bg-white text-black py-1 px-4 rounded-3xl hover:bg-gray-100 hover:-translate-y-0.5 transition-transform">Sign In</button>
+        </div>
+      </div> 
+      <!--Nav Links Container-->
+      <div class=" max-w-[1500px] w-full mx-auto">
+        <ul class="flex gap-[2.75rem]">
+          <li><a href="about.html" class="text-white">About Us</a></li>
+          <li><a href="#" class="text-white">Dashboards</a></li>
+          <li><a href="#" class="text-white">Chart Builder</a></li>
+          <li><a href="#" class="text-white">Map Builder</a></li>
+          <li><a href="#" class="text-white">Help & API</a></li>
+        </ul>
+      </div> 
+    </nav>
+  </header>
+  <main class="flex flex-col px-[2.5rem] gap-[2.5rem]">
+    <div class="flex flex-col gap-[1.2rem]">
+      <a href="#" class="text-[#0074C8] text-md flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" viewBox="0 0 16 32" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.45735 15.052L10 7.50933L11.8853 9.39466L5.28535 15.9947L11.8853 22.5947L10 24.48L2.45735 16.9373C2.20739 16.6873 2.06696 16.3482 2.06696 15.9947C2.06696 15.6411 2.20739 15.302 2.45735 15.052Z" fill="#0074C8"/>
+        </svg>
+        Health City Dashboard
+      </a>
+      <h1 class="text-black text-left text-[1.75rem] font-semibold">Mode share (trips made by foot, bike, or transit)</h1>
+    </div>
+    <div class="chartContainer" id="chart-container"></div>
+    
+  </main>
+  <footer>
+  </footer>
+<script src="https://echarts.apache.org/en/js/vendors/echarts/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="index.js"></script>  
 </body>
-</html>
+</html> 
