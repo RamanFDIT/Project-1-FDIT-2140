@@ -718,4 +718,20 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
 .footerLinks:hover{
   text-decoration: underline;
 }
-
+.pageNavLinks{
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  align-items: center;
+}
+.pageLinks{
+  color: var(--primaryColor);
+  font-size: var(--fontSmall);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.pageLinks:hover{
+  text-decoration: underline;
+}
