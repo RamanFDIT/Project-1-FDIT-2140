@@ -519,7 +519,6 @@ fetch('data.json')
       },
       legend: {
         data: ['Actual Trips','Female','Male','18 to 24 years','25 to 44 years','45 to 64 years','65 years and older'],
-        // top: '3%',
         selected: {
           '18 to 24 years': false,
           '25 to 44 years': false,
@@ -529,7 +528,8 @@ fetch('data.json')
         textStyle: {
           fontFamily: 'Montserrat, sans-serif',
           fontSize: 14
-        }
+        },
+        itemGap: 20
       },
       
       toolbox: [
@@ -541,11 +541,11 @@ fetch('data.json')
           top: '30%',
           right: '2%',
           iconStyle: {
-            borderWidth: 2
+            borderWidth: 1
           },
           emphasis: {
             iconStyle: {
-              borderWidth: 2
+              borderWidth: 1
             }
           },
           itemSize: 20,
@@ -575,11 +575,11 @@ fetch('data.json')
           top: '55%',
           right: '2%',
           iconStyle: {
-            borderWidth: 2
+            borderWidth: 1
           },
           emphasis: {
             iconStyle: {
-              borderWidth: 2
+              borderWidth: 1
             }
           },
           itemSize: 20,
