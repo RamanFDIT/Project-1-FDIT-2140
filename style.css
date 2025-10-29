@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root{
   --primaryColor:#0074C8;
   --accentColor: #4D8C3F;
@@ -152,7 +154,7 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
 
 .chart-download {
   position: absolute;
-  top: -0.5rem;
+  top: 0.5rem;
   right: 0.75rem;
   display: flex;
   flex-direction: column;
@@ -594,3 +596,87 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   scroll-snap-type: y mandatory;
 }
 
+
+
+
+
+
+
+
+
+
+
+/* === Layout === */
+.layout-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* === Header & Nav === */
+.header-main {
+  background-color: var(--primaryColor);
+}
+
+.nav-container {
+  background-color: var(--primaryColor);
+  height: 7.1875rem;
+  padding: 0.625rem 1.25rem;
+  max-width: var(--widthMax);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.625rem;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.75rem;
+  list-style: none;
+  padding: 0;
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primaryColor);
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.page-heading {
+  color: var(--textColorPrimary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* === Sections === */
+.summary-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.faq-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

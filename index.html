@@ -10,18 +10,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./style.css">
 </head>
-<body class="flex flex-col gap-[2.5rem]">
+<body class="layout-column">
   <header class="bg-[var(--primaryColor)]">
-    <nav class="w-full bg-[var(--primaryColor)] h-[7.1875rem] py-[0.625rem] px-[1.25rem] max-w-[var(--widthMax)] mx-auto flex flex-col justify-between">
+    <nav class="nav-container">
+
       <!--Logo and Button container-->
-      <div class="flex justify-between max-w-[var(--widthMax)] w-full mx-auto">
+      <div class="nav-top">
         <div class="flex justify-start items-end gap-[1.25rem]">
           <img src="images/LogoFDIT2140.svg" alt="Logo" class="logo">
           <h1 class="font-medium text-[var(--textColorSecondary)] text-[1.75rem]">Open Data Portal</h1>
         </div>
-        <div class="flex gap-[0.625rem] items-center">
+        <div class="nav-buttons">
           <button class="primaryBtn">Log In</button>
-          <button class="primaryBtn">Sign In</button>
+          <button class="primaryBtn">Sign OUT</button>
         </div>
       </div> 
       <!--Nav Links Container-->
