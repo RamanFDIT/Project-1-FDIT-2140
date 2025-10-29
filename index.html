@@ -11,14 +11,14 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body class="layout-column">
-  <header class="bg-[var(--primaryColor)]">
+  <header class="header-main">
     <nav class="nav-container">
 
       <!--Logo and Button container-->
       <div class="nav-top">
-        <div class="flex justify-start items-end gap-[1.25rem]">
+        <div class="logo-container">
           <img src="images/LogoFDIT2140.svg" alt="Logo" class="logo">
-          <h1 class="font-medium text-[var(--textColorSecondary)] text-[1.75rem]">Open Data Portal</h1>
+          <h1 class="header-title">Open Data Portal</h1>
         </div>
         <div class="nav-buttons">
           <button class="primaryBtn">Log In</button>
@@ -26,8 +26,8 @@
         </div>
       </div> 
       <!--Nav Links Container-->
-      <div class="max-w-[var(--widthMax)] w-full mx-auto">
-        <ul class="flex gap-[2.75rem]">
+      <div class="nav-links-container">
+        <ul class="nav-links">
           <li><a href="about.html" class="navLinks">About Us</a></li>
           <li><a href="#" class="navLinks">Dashboards</a></li>
           <li><a href="#" class="navLinks">Chart Builder</a></li>
@@ -37,27 +37,32 @@
       </div> 
     </nav>
   </header>
-  <main class="flex flex-col px-[2.5rem] gap-[2.5rem] max-w-[var(--widthMax)] w-full mx-auto">
-    <div class="flex flex-col gap-[1.2rem]">
-      <a href="#" class="text-[var(--primaryColor)] text-md flex items-center gap-2">
+  <main class="main-content">
+    <div class="breadcrumb-section">
+      <a href="#" class="breadcrumb-link">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="32" viewBox="0 0 16 32" fill="none">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M2.45735 15.052L10 7.50933L11.8853 9.39466L5.28535 15.9947L11.8853 22.5947L10 24.48L2.45735 16.9373C2.20739 16.6873 2.06696 16.3482 2.06696 15.9947C2.06696 15.6411 2.20739 15.302 2.45735 15.052Z" fill="var(--primaryColor)"/>
         </svg>
         Health City Dashboard
       </a>
-      <h1 class="text-[var(--textColorPrimary)] text-left text-[1.75rem] font-semibold">Mode share (trips made by foot, bike, or transit)</h1>
+      <h1 class="page-heading">Mode share (trips made by foot, bike, or transit)</h1>
     </div>
     <!--Chart Container-->
     <div class="chartContainer" id="chart-container"></div>
-    <div class="flex gap-[15rem] max-w-[var(--widthMax)] mx-auto justify-between ">
-      <div class="flex-1 flex flex-col gap-[2rem]">
+    <div class="summary-faq-layout"> 
+      <div class="summary-section">
         <h2 class="subHeads">Summary</h2>
         <p class="text-[var(--textColorPrimary)]">This data tracks the percentage values for "Female-identifying" and "Male-identifying" groups across different years from 2013 to 2020. The values generally center around 49.25%, ranging from a minimum of 42.00% to a maximum of 55.00%.
         The "Male-identifying" group consistently had a slightly higher average value (50.0%) compared to the "Female-identifying" group (48.5%) over the period. Both groups show a peak in the later years (2018/2019), followed by a sharp decline in 2020. Both groups experienced the same net change of a decrease of 5.00 percentage points between 2013 and 2020.</p>
       </div>
-      <div class="flex-1 flex flex-col gap-[2rem]">
+      <div class="faq-section">
         <h2 class="subHeads text-center">Frequently Asked Questions</h2>
-        <div class="questionContainer flex flex-col gap-[1.5rem] overflow-auto h-[25rem]">
+
+
+        <div class="questionsContainer">
+
+
+
           <div class="questions">
             <div class="questionComp">
               <p>How we measure it ?</p>

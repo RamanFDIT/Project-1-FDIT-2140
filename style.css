@@ -626,6 +626,19 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   background-color: var(--primaryColor);
 }
 
+.header-title {
+  font-size: medium;
+  color: var(--textColorSecondary);
+  font-size: 1.75rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  gap: 1.25rem;
+}
+
 .nav-container {
   background-color: var(--primaryColor);
   height: 7.1875rem;
@@ -635,6 +648,12 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.nav-links-container {
+  max-width: var(--widthMax);
+  width: 100%;
+  margin-inline: auto;
 }
 
 .nav-top {
@@ -667,6 +686,12 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   text-decoration: none;
 }
 
+.breadcrumb-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 .page-heading {
   color: var(--textColorPrimary);
   font-size: var(--fontLarge);
@@ -676,11 +701,37 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
 
 /* === Sections === */
 
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 2.5rem;
+  gap: 2.5rem;
+  max-width: var(--widthMax);
+  width: 100%;
+  margin-inline: auto;
+}
+
 .faq-section, .summary-section {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.summary-faq-layout {
+  display: flex;
+  gap: 15rem;
+  max-width: var(--widthMax);
+  margin-inline: auto;
+  justify-content: space-between;
+}
+
+.sectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: auto;
+  height: 25rem;
 }
 
 /* === Footer === */
@@ -718,6 +769,8 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
 .footerLinks:hover{
   text-decoration: underline;
 }
+
+
 .pageNavLinks{
   display: flex;
   gap: 10rem;
