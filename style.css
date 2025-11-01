@@ -550,7 +550,6 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   color: var(--textColorPrimary);
   font-size: var(--fontMedium);
   font-weight: 600;
-
 }
 .arrowDefault{
   rotate: 180deg;
@@ -684,6 +683,7 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   color: var(--primaryColor);
   font-size: 1rem;
   text-decoration: none;
+  text-align: left;
 }
 
 .breadcrumb-section {
@@ -792,4 +792,7 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+.center{
+  text-align: center;
 }
