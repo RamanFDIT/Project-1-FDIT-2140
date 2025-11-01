@@ -788,3 +788,8 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
 .pageLinks:hover{
   text-decoration: underline;
 }
+.fixedBottom{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
