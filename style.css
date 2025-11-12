@@ -16,6 +16,7 @@
   margin: 0;
   padding: 0;
   font-family: var(--font);
+  font-size: var(--fontSmall);
 }
 #chart-container {
   position: relative;
@@ -154,6 +155,9 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   gap: 0.75rem;
   align-items: flex-end;
 }
+
+
+/* Chart Download button */
 
 .chart-download {
   position: absolute;
@@ -583,6 +587,12 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   visibility: hidden;
   transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.35s ease;
 }
+
+.questionExpanded p {
+  font-size: var(--fontExtraSmall);
+
+}
+
 .questionExpanded.is-open{
   max-height: 600px;
   padding: 1.25rem 0.625rem;

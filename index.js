@@ -13,26 +13,35 @@ if (typeof Papa === 'undefined') {
 
 
 
-// Перерисовка графика при изменении размера экрана / выходе из fullscreen
 document.addEventListener('fullscreenchange', () => {
   myChart.resize();
 });
-// общий label для всех серий:
-// на bar — показывает проценты;
-// на line — возвращает пустую строку (ничего не рисует).
+
+const labelShortNames = {
+  'Actual Trips': 'Trips',
+  'Female': 'Female',
+  'Male': 'Male',
+  '18 to 24 years': '18–24',
+  '25 to 44 years': '25–44',
+  '45 to 64 years': '45–64',
+  '65 years and older': '65+'
+};
+
 const labelOption = {
   show: true,
   position: 'inside',
   verticalAlign: 'middle',
   align: 'center',
   rotate: 90,
-  fontSize: 16,
+  fontSize: 14,
   fontFamily: 'Montserrat, sans-serif',
-  formatter: (p) => (
-    p.seriesType === 'line'
-      ? '' // ← hiding label for linegraph 
-      : (p.value == null ? '' : `  ${p.seriesName}`)//${p.value}%
-  )
+  formatter: (p) => {
+    if (p.seriesType === 'line') return '';
+  
+    if (p.value == null || p.value < 12) return '';
+  
+    return labelShortNames[p.seriesName] || p.seriesName;
+  }
 };
 
 
@@ -177,6 +186,11 @@ fetch('data.json')
         showTableView();
       }
     };
+
+
+
+    // Download button functionality
+
 
     const openDownloadPanel = () => {
       if (!downloadPanel) return;
@@ -503,8 +517,12 @@ fetch('data.json')
 
     ensureDownloadControl();
 
+
+    // download button functionality - end
+
     option = {
       // Global text style for the entire chart
+      // color: ['#EB170B', '#91CC75', '#FAC858', '#EE6666', '#73C0DE', '#3BA272', '#FC8452'], // first variant of changing a color
       textStyle: {
         fontFamily: 'Montserrat, sans-serif'
       },
@@ -518,7 +536,12 @@ fetch('data.json')
         }
       },
       legend: {
-        data: ['Actual Trips','Female','Male','18 to 24 years','25 to 44 years','45 to 64 years','65 years and older'],
+        data: [
+          // {
+          //   name: 'Actual Trips',
+          //   itemStyle: { color: '#EB170B' },
+          // },
+          'Actual Trips','Female','Male','18 to 24 years','25 to 44 years','45 to 64 years','65 years and older'],
         selected: {
           '18 to 24 years': false,
           '25 to 44 years': false,
@@ -527,9 +550,12 @@ fetch('data.json')
         },
         textStyle: {
           fontFamily: 'Montserrat, sans-serif',
-          fontSize: 14
+          fontSize: 14,
+          color: '#333333' // legend text color 2nd variant (have to change series later as well)  
         },
-        itemGap: 20
+        itemGap: 20,
+        inactiveColor: '#cccccc',      // innactive legend item color
+
       },
       
       toolbox: [
@@ -659,13 +685,13 @@ fetch('data.json')
 
 
 series: [
-  { name: 'Actual Trips', type: 'bar', data: actual, label: labelOption, symbol: 'rect', lineStyle: { width: 4 }  }, //lineStyle: { width: 2 }
-  { name: 'Female', type: 'bar', data: female, label: labelOption, symbol: 'roundRect', symbolSize: 5, }, 
+  { name: 'Actual Trips', type: 'bar', data: actual, label: labelOption, symbol: 'rect', lineStyle: { width: 4 },  }, //itemStyle: {color: '#EB170B'}, second variant of changing a color
+  { name: 'Female', type: 'bar', data: female, label: labelOption, symbol: 'roundRect', symbolSize: 5, }, // label: {...labelOption, color:'#eb170b'} change a color for a text 
   { name: 'Male', type: 'bar', data: male, label: labelOption, symbol: 'roundRect', symbolSize: 5, },
-  { name: '18 to 24 years', type: 'bar', data: age18_24, label: labelOption , symbol: 'roundRect', symbolSize: 5,},
+  { name: '18 to 24 years', type: 'bar', data: age18_24, label: labelOption , symbol: 'roundRect', symbolSize: 5, },
   { name: '25 to 44 years', type: 'bar', data: age25_44, label: labelOption , symbol: 'roundRect', symbolSize: 5,},
   { name: '45 to 64 years', type: 'bar', data: age45_64, label: labelOption , symbol: 'roundRect', symbolSize: 5,},
-  { name: '65 years and older', type: 'bar', data: age65, label: labelOption, symbol: 'roundRect', symbolSize: 5,}
+  { name: '65 years and older', type: 'bar', data: age65, label: labelOption, symbol: 'roundRect', symbolSize: 5, }
 ]
     };
 
