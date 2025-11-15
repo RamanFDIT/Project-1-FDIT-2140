@@ -148,19 +148,21 @@ fetch('data.json')
       }).join('');
 
       return `
-        <div class="table-view-header">
-          <div>
-            <h2>Trip Data Table</h2>
+        <div class="table-view-container">
+          <div class="table-view-header">
+            <div>
+              <h2>Trip Data Table</h2>
+            </div>
+            <button type="button" class="table-view-close" aria-label="Close table view">×</button>
           </div>
-          <button type="button" class="table-view-close" aria-label="Close table view">×</button>
-        </div>
-        <div class="table-view-scroll">
-          <table>
-            <thead><tr>${headerCells}</tr></thead>
-            <tbody>${rowsHtml}</tbody>
-          </table>
-        </div>
-      `;
+          <div class="table-view-scroll">
+            <table>
+              <thead><tr>${headerCells}</tr></thead>
+              <tbody>${rowsHtml}</tbody>
+            </table>
+          </div>
+        </div>  
+        `;
     };
 
     const hideTableView = () => {

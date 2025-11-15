@@ -179,6 +179,11 @@ Update CSS variables in `:root` selector:
 - ✅ Safari 12+
 - ✅ Edge 79+
 
+## ⚠️ Limitations
+
+- The ECharts toolbox icons do not display an active state; there is no documented approach in the ECharts guides for toggling those icons programmatically.
+- The table view replaces the chart with an overlay, so the toolbox is hidden while the overlay is visible.
+
 
 ## 🤝 Contributing
 
