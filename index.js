@@ -561,8 +561,6 @@ fetch('data.json')
     // download button functionality - end
 
     const option = {
-      // Global text style for the entire chart
-      // color: ['#EB170B', '#91CC75', '#FAC858', '#EE6666', '#73C0DE', '#3BA272', '#FC8452'], // first variant of changing a color
       backgroundColor: '#ffffff',
       textStyle: {
         fontFamily: 'Montserrat, sans-serif',
@@ -579,10 +577,6 @@ fetch('data.json')
       },
       legend: {
         data: [
-          // {
-          //   name: 'Actual Trips',
-          //   itemStyle: { color: '#EB170B' },
-          // },
           'Actual Trips','Female','Male','18 to 24 years','25 to 44 years','45 to 64 years','65 years and older'],
         selected: {
           '18 to 24 years': false,
@@ -630,7 +624,7 @@ fetch('data.json')
             myTableView: {
               show: true,
               title: 'Table View',
-              icon: 'path://M64 68h352v48H64V68zm0 96h352v48H64v-48zm0 96h352v48H64v-48zm0 96h352v48H64v-48z',
+              icon: 'path://M64 96h384v64H64V96zm0 96h384v64H64v-64zm0 96h384v64H64v-64z',
               onclick: toggleTableView
             }
           }
