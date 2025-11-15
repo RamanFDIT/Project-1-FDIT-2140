@@ -4,6 +4,7 @@ var myChart = echarts.init(dom, null, {
   useDirtyRect: false
 });
 var app = {};
+let syncFullscreenToolState = () => {};
 
 // Ensure PapaParse is available
 if (typeof Papa === 'undefined') {
@@ -15,6 +16,7 @@ if (typeof Papa === 'undefined') {
 
 document.addEventListener('fullscreenchange', () => {
   myChart.resize();
+  syncFullscreenToolState();
 });
 
 const labelShortNames = {
@@ -73,6 +75,42 @@ fetch('data.json')
   let downloadToastLabel = null;
   let downloadButtons = [];
   let toastTimeout = null;
+  let currentMagicType = 'bar';
+
+    const toggleToolActive = (nodes, active) => {
+      nodes.forEach(node => node.classList.toggle('tool-active', !!active));
+    };
+
+    const setToolActive = (selector, active) => {
+      toggleToolActive(dom.querySelectorAll(selector), active);
+    };
+
+    const setToolActiveByTitle = (title, active) => {
+      const matches = Array.from(dom.querySelectorAll('.echarts-toolbox-feature')).filter(node => node.getAttribute('title') === title);
+      toggleToolActive(matches, active);
+    };
+
+    const syncMagicTypeTools = () => {
+      setToolActiveByTitle('Bar Chart', currentMagicType === 'bar');
+      setToolActiveByTitle('Line Chart', currentMagicType === 'line');
+    };
+
+    const syncTableTool = () => {
+      setToolActive('.echarts-toolbox-feature-myTableView', tableVisible);
+    };
+
+    const syncFullscreenTool = () => {
+      const isActive = document.fullscreenElement === dom;
+      setToolActive('.echarts-toolbox-feature-myFullscreen', isActive);
+    };
+
+    const syncToolHighlights = () => {
+      syncMagicTypeTools();
+      syncTableTool();
+      syncFullscreenTool();
+    };
+
+    syncFullscreenToolState = syncFullscreenTool;
 
     const ensureTableOverlay = () => {
       if (!tableOverlay) {
@@ -148,6 +186,7 @@ fetch('data.json')
 
       overlay.style.display = 'none';
       tableVisible = false;
+      syncTableTool();
     };
 
     const showTableView = () => {
@@ -177,6 +216,7 @@ fetch('data.json')
       }
 
       tableVisible = true;
+      syncTableTool();
     };
 
     const toggleTableView = () => {
@@ -520,11 +560,13 @@ fetch('data.json')
 
     // download button functionality - end
 
-    option = {
+    const option = {
       // Global text style for the entire chart
       // color: ['#EB170B', '#91CC75', '#FAC858', '#EE6666', '#73C0DE', '#3BA272', '#FC8452'], // first variant of changing a color
+      backgroundColor: '#ffffff',
       textStyle: {
-        fontFamily: 'Montserrat, sans-serif'
+        fontFamily: 'Montserrat, sans-serif',
+        color: '#333333'
       },
       tooltip: {
         trigger: 'axis',
@@ -587,7 +629,7 @@ fetch('data.json')
             },
             myTableView: {
               show: true,
-              title: 'Toggle Table View',
+              title: 'Table View',
               icon: 'path://M64 68h352v48H64V68zm0 96h352v48H64v-48zm0 96h352v48H64v-48zm0 96h352v48H64v-48z',
               onclick: toggleTableView
             }
