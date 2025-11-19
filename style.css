@@ -135,6 +135,13 @@ div[data-zr-dom-id] > div > div:nth-child(5) {
   z-index: 2;
 }
 
+#chart-container:fullscreen .table-view-overlay,
+#chart-container:-webkit-full-screen .table-view-overlay,
+#chart-container:-ms-fullscreen .table-view-overlay {
+  justify-content: center;
+  align-items: center;
+}
+
 .table-view-toolbox-dock {
   position: absolute;
   top: 9.75rem;
